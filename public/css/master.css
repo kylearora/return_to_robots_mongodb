@@ -1,0 +1,62 @@
+body{
+  width: 1300px;
+}
+
+h1  {
+  font-family: futura;
+  text-align: center;
+  color:blue;
+}
+
+.theBigDiv{
+  width: 1300px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.results {
+  width:300px;
+  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 10px 10px 10px 10px;
+}
+
+.avatars {
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  /*border: 2px dotted black;
+  border-radius: 10px;*/
+  margin-top: 15px;
+}
+
+.name {
+  display: flex;
+  justify-content: center;
+  width: 300px;
+
+}
+a {
+  text-decoration: none;
+}
+
+.jobInfo {
+  width: 200px;
+  font-family: helvetica;
+  font-weight: lighter;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.unemployed {
+  font-family: helvetica;
+  font-weight: lighter;
+  color:red;
+}
