@@ -1,7 +1,6 @@
 {
   "name": "creating_user_directory",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js -e js,mustache",
@@ -18,8 +17,15 @@
   },
   "homepage": "https://github.com/kylearora/creating_user_directory#readme",
   "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.2",
     "express": "^4.15.4",
+    "express-session": "^1.15.5",
     "mongodb": "^2.2.31",
+    "mongoose": "^4.10.8",
+    "mongoose-session": "0.0.4",
     "mustache-express": "^1.2.5"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }

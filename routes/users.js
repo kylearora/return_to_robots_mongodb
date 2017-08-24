@@ -3,8 +3,11 @@ const app = express()
 const router = express.Router()
 const mustache = require("mustache-express")
 const MongoClient = require("mongodb")
-
+const mongoose = require("mongoose")
+mongoose.Promise = require("bluebird")
+const users = require("../models/robots")
 const url = "mongodb://127.0.0.1:27017/robots"
+console.log(mongoose);
 
 // To push data to Mongo Database:
 
@@ -25,10 +28,11 @@ const url = "mongodb://127.0.0.1:27017/robots"
 // })
 
 router.get("/", function(req, res) {
-    MongoClient.connect(url,function(err, db) {
+    mongoose.connect(url,function(err, db) {
     console.log("Connected");
     const title = "ChipedIn: LinkedIn for Robots"
-    db.collection("users").find().toArray().then(function(users){
+    users.find()
+    .then(function(users){
       res.render("index", {
         title: title,
         users: users
@@ -37,14 +41,22 @@ router.get("/", function(req, res) {
   })
 })
 
-router.get("/users/:id", function (req, res) {
-    MongoClient.connect(url,function(err, db) {
-    db.collection("users").findOne({id:parseInt((req.params.id))}).then(function(user){
-      res.render("profile", {
-        user:user
-      })
-    })
-  })
+// router.get("/users/:id", function (req, res) {
+//     MongoClient.connect(url,function(err, db) {
+//     db.collection("users").findOne({id:parseInt((req.params.id))}).then(function(user){
+//       res.render("profile", {
+//         user:user
+//       })
+//     })
+//   })
+// })
+
+router.get("/register", function (req, res) {
+  res.render("register")
+})
+
+router.post("/newRobot", function (req, res) {
+  res.redirect("/")
 })
 
 module.exports = router
